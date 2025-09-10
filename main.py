@@ -171,7 +171,7 @@ T = 0.001
 
 #Defining the fucntion
 
-def ThreeBodyProb(t,y,m1,m2,m3,m4):
+def ThreeBody(t,y,m1,m2,m3,m4):
     f = np.zeros(16)
     #velocities of the 3bodies
     f[0] = y[8]
