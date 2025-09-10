@@ -217,13 +217,16 @@ def ThreeBody(t,y,m1,m2,m3,m4):
 
 # Solution for the positions at all times
 t = np.linspace(0,N*T,N)
-sol = solve_ivp(ThreeBody,[0,670],y0,t_eval=t,rtol=1e-9,
+solution = solve_ivp(ThreeBody,[0,670],y0,t_eval=t,rtol=1e-9,
                 args=(m1, m2, m3, m4))
 
 unstable_solutions_x = []
 unstable_solutions_y = []
 stable_solutions_px  = []
 unstable_solutions_px = []
+
+unstable_solutions_m = []
+stable_solutions_m = []
 
 stable_solutions_py = []
 unstable_solutions_py = []
