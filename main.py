@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.integrate import solve_ivp
-import matplotlib.pylot as plt
+import matplotlib.pyplot as plt
 
 #solutions initial conditions
 
@@ -183,40 +183,40 @@ def ThreeBodyProb(t,y,m1,m2,m3,m4):
     f[6] = y[14]
     f[7] = y[15]
 
-    #now calculating the acceleration for each body respectively
-# The x and y accelerations of each object respectively
-f[8]  = -m2*(y[0]-y[2])/(((y[0]-y[2])**2+(y[1]-y[3])**2)**(3/2)) \
-        -m3*(y[0]-y[4])/(((y[0]-y[4])**2+(y[1]-y[5])**2)**(3/2)) \
-        -m4*(y[0]-y[6])/(((y[0]-y[6])**2+(y[1]-y[7])**2)**(3/2)) 
-f[9]  = -m2*(y[1]-y[3])/(((y[0]-y[2])**2+(y[1]-y[3])**2)**(3/2)) \
-        -m3*(y[1]-y[5])/(((y[0]-y[4])**2+(y[1]-y[5])**2)**(3/2)) \
-        -m4*(y[1]-y[7])/(((y[0]-y[6])**2+(y[1]-y[7])**2)**(3/2)) 
+        #now calculating the acceleration for each body respectively
+    # The x and y accelerations of each object respectively
+    f[8]  = -m2*(y[0]-y[2])/(((y[0]-y[2])**2+(y[1]-y[3])**2)**(3/2)) \
+            -m3*(y[0]-y[4])/(((y[0]-y[4])**2+(y[1]-y[5])**2)**(3/2)) \
+            -m4*(y[0]-y[6])/(((y[0]-y[6])**2+(y[1]-y[7])**2)**(3/2)) 
+    f[9]  = -m2*(y[1]-y[3])/(((y[0]-y[2])**2+(y[1]-y[3])**2)**(3/2)) \
+            -m3*(y[1]-y[5])/(((y[0]-y[4])**2+(y[1]-y[5])**2)**(3/2)) \
+            -m4*(y[1]-y[7])/(((y[0]-y[6])**2+(y[1]-y[7])**2)**(3/2)) 
 
-f[10] = -m1*(y[2]-y[0])/(((y[2]-y[0])**2+(y[3]-y[1])**2)**(3/2)) \
-        -m3*(y[2]-y[4])/(((y[2]-y[4])**2+(y[3]-y[5])**2)**(3/2)) \
-        -m4*(y[2]-y[6])/(((y[2]-y[6])**2+(y[3]-y[7])**2)**(3/2)) 
-f[11] = -m1*(y[3]-y[1])/(((y[2]-y[0])**2+(y[3]-y[1])**2)**(3/2)) \
-        -m3*(y[3]-y[5])/(((y[2]-y[4])**2+(y[3]-y[5])**2)**(3/2)) \
-        -m4*(y[3]-y[7])/(((y[2]-y[6])**2+(y[3]-y[7])**2)**(3/2)) 
+    f[10] = -m1*(y[2]-y[0])/(((y[2]-y[0])**2+(y[3]-y[1])**2)**(3/2)) \
+            -m3*(y[2]-y[4])/(((y[2]-y[4])**2+(y[3]-y[5])**2)**(3/2)) \
+            -m4*(y[2]-y[6])/(((y[2]-y[6])**2+(y[3]-y[7])**2)**(3/2)) 
+    f[11] = -m1*(y[3]-y[1])/(((y[2]-y[0])**2+(y[3]-y[1])**2)**(3/2)) \
+            -m3*(y[3]-y[5])/(((y[2]-y[4])**2+(y[3]-y[5])**2)**(3/2)) \
+            -m4*(y[3]-y[7])/(((y[2]-y[6])**2+(y[3]-y[7])**2)**(3/2)) 
 
-f[12] = -m1*(y[4]-y[0])/(((y[4]-y[0])**2+(y[5]-y[1])**2)**(3/2)) \
-        -m2*(y[4]-y[2])/(((y[4]-y[2])**2+(y[5]-y[3])**2)**(3/2)) \
-        -m4*(y[4]-y[6])/(((y[4]-y[6])**2+(y[5]-y[7])**2)**(3/2)) 
-f[13] = -m1*(y[5]-y[1])/(((y[4]-y[0])**2+(y[5]-y[1])**2)**(3/2)) \
-        -m2*(y[5]-y[3])/(((y[4]-y[2])**2+(y[5]-y[3])**2)**(3/2)) \
-        -m4*(y[5]-y[7])/(((y[4]-y[6])**2+(y[5]-y[7])**2)**(3/2)) 
+    f[12] = -m1*(y[4]-y[0])/(((y[4]-y[0])**2+(y[5]-y[1])**2)**(3/2)) \
+            -m2*(y[4]-y[2])/(((y[4]-y[2])**2+(y[5]-y[3])**2)**(3/2)) \
+            -m4*(y[4]-y[6])/(((y[4]-y[6])**2+(y[5]-y[7])**2)**(3/2)) 
+    f[13] = -m1*(y[5]-y[1])/(((y[4]-y[0])**2+(y[5]-y[1])**2)**(3/2)) \
+            -m2*(y[5]-y[3])/(((y[4]-y[2])**2+(y[5]-y[3])**2)**(3/2)) \
+            -m4*(y[5]-y[7])/(((y[4]-y[6])**2+(y[5]-y[7])**2)**(3/2)) 
 
-f[14] = -m1*(y[6]-y[0])/(((y[6]-y[0])**2+(y[7]-y[1])**2)**(3/2)) \
-        -m2*(y[6]-y[2])/(((y[6]-y[2])**2+(y[7]-y[3])**2)**(3/2)) \
-        -m3*(y[6]-y[4])/(((y[6]-y[4])**2+(y[7]-y[5])**2)**(3/2)) 
-f[15] = -m1*(y[7]-y[1])/(((y[6]-y[0])**2+(y[7]-y[1])**2)**(3/2)) \
-        -m2*(y[7]-y[3])/(((y[6]-y[2])**2+(y[7]-y[3])**2)**(3/2)) \
-        -m3*(y[7]-y[5])/(((y[6]-y[4])**2+(y[7]-y[5])**2)**(3/2)) 
+    f[14] = -m1*(y[6]-y[0])/(((y[6]-y[0])**2+(y[7]-y[1])**2)**(3/2)) \
+            -m2*(y[6]-y[2])/(((y[6]-y[2])**2+(y[7]-y[3])**2)**(3/2)) \
+            -m3*(y[6]-y[4])/(((y[6]-y[4])**2+(y[7]-y[5])**2)**(3/2)) 
+    f[15] = -m1*(y[7]-y[1])/(((y[6]-y[0])**2+(y[7]-y[1])**2)**(3/2)) \
+            -m2*(y[7]-y[3])/(((y[6]-y[2])**2+(y[7]-y[3])**2)**(3/2)) \
+            -m3*(y[7]-y[5])/(((y[6]-y[4])**2+(y[7]-y[5])**2)**(3/2)) 
 
-return f
+    return f
 
 # Solution for the positions at all times
-t = np.linspace(0,N*T,NT)
+t = np.linspace(0,N*T,N)
 sol = solve_ivp(ThreeBody,[0,670],y0,t_eval=t,rtol=1e-9,
                 args=(m1, m2, m3, m4))
 
@@ -330,122 +330,123 @@ def VectorStability(g):
                 if i > 10:
                     output = print("This system is unstable")
                     unstable_solutions_m.append(used_mass)
-            break
-        else:
-            output = print("This system is stable")
-            stable_solutions_m.append(used_mass)
-            break
-    return output
-
-elif g == 'px':
-    for i in positions_x:
-        used_pos_x = i
-        print(i)
-        y0[6] = i
-        solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
-                             args = (m1, m2, m3, m4))
-
-        # d12
-        distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[3][N-1] - solution.y[1][N-1])**2))
-        # d13
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[1][N-1])**2))
-        # d23
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[3][N-1])**2))
-
-        plt_4bodies()
-        for i in distance:
-            if i > 10:
-                output = print("This system is unstable")
-                unstable_solutions_px.append(used_pos_x)
-                break
-            else:
-                output = print("This system is stable")
-                stable_solutions_px.append(used_pos_x)
-                break
-    return output
-
-elif g == 'py':
-    for i in positions_y:
-        used_pos_y = i
-        print(i)
-        y0[7] = i
-        solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
-                             args = (m1, m2, m3, m4))
-
-        # d12
-        distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[3][N-1] - solution.y[1][N-1])**2))
-        # d13
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[1][N-1])**2))
-        # d23
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[3][N-1])**2))
-
-        plt_4bodies()
-        for i in distance:
-            if i > 10:
-                output = print("This system is unstable")
-                unstable_solutions_py.append(used_pos_y)
-                break
-            else:
-                output = print("This system is stable")
-                stable_solutions_py.append(used_pos_y)
-                break
-    return output
-
-elif g == 'vx':
-    for i in velocities_x:
-        used_vel_x = i
-        print(i)
-        y0[14] = i
-        solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
-                             args = (m1, m2, m3, m4))
-
-        # d12
-        distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[3][N-1] - solution.y[1][N-1])**2))
-        # d13
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[1][N-1])**2))
-        # d23
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
-                                (solution.y[5][N-1] - solution.y[3][N-1])**2))
-
-        plt_4bodies()
-        for i in distance:
-            if i > 10:
-                output = print("This system is unstable")
-                unstable_solutions_vx.append(used_vel_x)
-                break
-            else:
-                output = print("This system is stable")
-                stable_solutions_vx.append(used_vel_x)
                     break
-    return output
-elif g == 'vy':
-    for i in velocities_y:
-        used_vel_y = i
-        print(i)
-        y0[15] = i
-        solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9, args = (m1, m2, m3, m4))
-        distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 + (solution.y[3][N-1] - solution.y[1][N-1])**2)) #r12
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 + (solution.y[5][N-1] - solution.y[1][N-1])**2)) #r13
-        distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 + (solution.y[5][N-1] - solution.y[3][N-1])**2)) #r23
-        plt_4bodies()
-        for i in distance:
-            if i > 10:
-                output = print("This system is unstable")
-                unstable_solutions_vy.append(used_vel_y)
-                break
-            else:
-                output = print("This system is stable")
-                stable_solutions_vy.append(used_vel_y)
-                break
-    return output
+                else:
+                    output = print("This system is stable")
+                    stable_solutions_m.append(used_mass)
+                    break
+        return output
+
+    elif g == 'px':
+        for i in positions_x:
+            used_pos_x = i
+            print(i)
+            y0[6] = i
+            solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
+                             args = (m1, m2, m3, m4))
+
+        # d12
+            distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
+                                (solution.y[3][N-1] - solution.y[1][N-1])**2))
+        # d13
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
+                                (solution.y[5][N-1] - solution.y[1][N-1])**2))
+        # d23
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
+                                (solution.y[5][N-1] - solution.y[3][N-1])**2))
+
+            plt_4bodies()
+            for i in distance:
+                if i > 10:
+                    output = print("This system is unstable")
+                    unstable_solutions_px.append(used_pos_x)
+                    break
+                else:
+                    output = print("This system is stable")
+                    stable_solutions_px.append(used_pos_x)
+                    break
+        return output
+
+    elif g == 'py':
+        for i in positions_y:
+            used_pos_y = i
+            print(i)
+            y0[7] = i
+            solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
+                                args = (m1, m2, m3, m4))
+
+            # d12
+            distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
+                                    (solution.y[3][N-1] - solution.y[1][N-1])**2))
+            # d13
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
+                                    (solution.y[5][N-1] - solution.y[1][N-1])**2))
+            # d23
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
+                                    (solution.y[5][N-1] - solution.y[3][N-1])**2))
+
+            plt_4bodies()
+            for i in distance:
+                if i > 10:
+                    output = print("This system is unstable")
+                    unstable_solutions_py.append(used_pos_y)
+                    break
+                else:
+                    output = print("This system is stable")
+                    stable_solutions_py.append(used_pos_y)
+                    break
+        return output
+
+    elif g == 'vx':
+        for i in velocities_x:
+            used_vel_x = i
+            print(i)
+            y0[14] = i
+            solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9,
+                                args = (m1, m2, m3, m4))
+
+            # d12
+            distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 +
+                                    (solution.y[3][N-1] - solution.y[1][N-1])**2))
+            # d13
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 +
+                                    (solution.y[5][N-1] - solution.y[1][N-1])**2))
+            # d23
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 +
+                                    (solution.y[5][N-1] - solution.y[3][N-1])**2))
+
+            plt_4bodies()
+            for i in distance:
+                if i > 10:
+                    output = print("This system is unstable")
+                    unstable_solutions_vx.append(used_vel_x)
+                    break
+                else:
+                    output = print("This system is stable")
+                    stable_solutions_vx.append(used_vel_x)
+                    break
+        return output
+        
+    elif g == 'vy':
+        for i in velocities_y:
+            used_vel_y = i
+            print(i)
+            y0[15] = i
+            solution = solve_ivp(ThreeBody, [0,670], y0, t_eval=t, rtol=1e-9, args = (m1, m2, m3, m4))
+            distance.append(np.sqrt((solution.y[2][N-1] - solution.y[0][N-1])**2 + (solution.y[3][N-1] - solution.y[1][N-1])**2)) #r12
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[0][N-1])**2 + (solution.y[5][N-1] - solution.y[1][N-1])**2)) #r13
+            distance.append(np.sqrt((solution.y[4][N-1] - solution.y[2][N-1])**2 + (solution.y[5][N-1] - solution.y[3][N-1])**2)) #r23
+            plt_4bodies()
+            for i in distance:
+                if i > 10:
+                    output = print("This system is unstable")
+                    unstable_solutions_vy.append(used_vel_y)
+                    break
+                else:
+                    output = print("This system is stable")
+                    stable_solutions_vy.append(used_vel_y)
+                    break
+        return output
 
 VectorStability(g)
 if g == 'm':
